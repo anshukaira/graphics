@@ -1,2 +1,2 @@
 # graphics
-random graphic projects
+random objects and things!!
