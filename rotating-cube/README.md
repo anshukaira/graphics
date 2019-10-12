@@ -3,4 +3,4 @@ Hey. so this is about rotating a cube. believe me this cube rotates!! I just sta
 
 
 <img src="https://github.com/anshukaira/graphics/blob/master/rotating-cube/one.png" width="200" height="200">
-<img src="anshukaira/graphics/rotating-cube/two.png" width="200" height="200">
+<img src="https://github.com/anshukaira/graphics/blob/master/rotating-cube/two.png" width="200" height="200">
