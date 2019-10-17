@@ -1,19 +1,17 @@
 //hi. this code rotates a cube. #practice_from_utube_tut
 #include<bits/stdc++.h>
 #include<GL/glut.h>
-#include<graphics.h>
 using namespace std;
 float x= 0.0;
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//clear
+ra
   glLoadIdentity();//reset all transformation meaning origin //remains same;
   //draw
   glTranslatef(0.0, 0.0, -8.0);//can not call bw glbegin nd glend need to call b4 making the actual drawing.
-    glRotatef(x, 1.0, 1.0, 1.0);
+    glRotatef(x, 1.0, 1.0, 1.0);//used for rotation
   glBegin(GL_QUADS);//specify vertwx
-  // glPointSize(10.0);//resize points
-  //gl traingles;
   //glcuboid
      glColor3f(1.0,1.0,0.0);
     glVertex3f(-1.0,1.0,1.0);
