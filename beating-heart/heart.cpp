@@ -1,30 +1,29 @@
 //heres a heart beating. 
 #include<bits/stdc++.h>
 #include<GL/glut.h>
-#include<graphics.h>
 using namespace std;
-float x= 0.0;
+float x= 0.0;//used in animation to change the axis of z
 int state=1;
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);//clear
   glLoadIdentity();//reset all transformation meaning origin //remains same;
   //draw
-  glTranslatef(0.0, 0.0, x);//can not call bw glbegin nd glend need to call b4 making the actual drawing.
+  glTranslatef(0.0, 0.0, x);//used for transforming the origin and hence the objcan not be called bw glbegin nd glend need to call b4 making the actual drawing.
  glColor3f(1.0, 0.0, 0.0);
  glPointSize(5.0);
- glBegin(GL_POINTS);
-        for (float x = -1.139; x <= 1.139; x += 0.001) 
+ glBegin(GL_POINTS);//if we use POLYGONS instead of point the heart will be colored.
+        for (float x = -1.139; x <= 1.139; x += 0.001) //loop for drawing a heart
         {
             float delta = cbrt(x*x) * cbrt(x*x) - 4*x*x + 4;
             float y1 = (cbrt(x*x) + sqrt(delta)) / 2;
             float y2 = (cbrt(x*x) - sqrt(delta)) / 2;
-            glVertex2f(x, y1);
+            glVertex2f(x, y1);//sets the points
             glVertex2f(x, y2);
         }
 
   glEnd();
- glutSwapBuffers();
+ glutSwapBuffers();//this is basically used for providing two frames, to cope up with distortion which might be resulted from not loading the full img nd finishing of time of a particular unit of time in animation.
 }
 void reshape(int w, int h)
 {
@@ -32,12 +31,12 @@ void reshape(int w, int h)
   glViewport(0,0, (GLsizei)w, (GLsizei)h);//whole screen
   glMatrixMode(GL_PROJECTION);//change matrix mode
    glLoadIdentity();//reset
-gluPerspective(60, 1, 2.0, 50.0);
+gluPerspective(60, 1, 2.0, 50.0);//change of matrix mode
    glMatrixMode(GL_MODELVIEW);
 }
-void init()
+void init()//initializing function
 {
-  glClearColor(0.0, 0.0, 0.0, 0.0);
+  glClearColor(0.0, 0.0, 0.0, 0.0);//
   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 glEnable(GL_COLOR_MATERIAL);
 }
@@ -73,8 +72,8 @@ int main(int argc, char* argv[])
 
   glutCreateWindow("Window 1");
   glutDisplayFunc(display);
-  glutReshapeFunc(reshape);
-  glutTimerFunc(0, timer, 0);
+  glutReshapeFunc(reshape);//if reshape is needed
+  glutTimerFunc(0, timer, 0);//animation timing fn
   init();
 
 
