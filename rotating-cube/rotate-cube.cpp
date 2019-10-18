@@ -59,7 +59,7 @@ void reshape(int w, int h)
   glViewport(0,0, (GLsizei)w, (GLsizei)h);  //whole screen
   glMatrixMode(GL_PROJECTION);              //change matrix mode
    glLoadIdentity();                        //reset
-gluPerspective(60, 1, 2.0, 50.0);           //it is the frustum of the view in 3 d
+gluPerspective(60, (GLsizei)w/(GLsizei)h, 2.0, 50.0);           //it is the frustum of the view in 3 d
    glMatrixMode(GL_MODELVIEW);
 }
 void init()
