@@ -25,14 +25,14 @@ display(void)
   static GLfloat dif[] =
   {1.0, 1.0, 1.0, 0.0};
 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
   glEnable(GL_LIGHT1);
   glDisable(GL_LIGHT2);
   amb[3] = dif[3] = cos(s) / 2.0 + 0.5;
   glMaterialfv(GL_FRONT, GL_AMBIENT, amb);
   glMaterialfv(GL_FRONT, GL_DIFFUSE, dif);
 
-  glPushMatrix();
+  glPushMatrix();  
   glTranslatef(-0.3, -0.3, 0.0);
   glRotatef(angle1, 1.0, 5.0, 0.0);
   glCallList(1);        /* render ico display list */
@@ -54,7 +54,7 @@ display(void)
   glPushAttrib(GL_ENABLE_BIT);
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_LIGHTING);
-  glMatrixMode(GL_PROJECTION);
+  glMatrixMode(GL_PROJECTION); //change matrix mode
   glPushMatrix();
   glLoadIdentity();
   gluOrtho2D(0, 1500, 0, 1500);
@@ -137,6 +137,6 @@ int main(int argc, char **argv)
     0.0, 1.0, 0.);      /* up is in positive Y direction */
   glTranslatef(0.0, 0.0, -1.0);
 
-  glutMainLoop();
+  glutMainLoop(); //to keep the looping continue until u press cross button
   return 0;             /* ANSI C requires main to return int. */
 }
